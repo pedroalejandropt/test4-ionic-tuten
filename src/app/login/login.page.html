@@ -1,0 +1,48 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Booking
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <div class='loginForm'>
+    <mat-card>
+      <mat-card-title
+        style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+        <mat-icon color="primary">person</mat-icon><br>Inicio de Sesión
+      </mat-card-title>
+      <form>
+        <mat-card-content>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Correo Electronico" [formControl]="emailFormControl">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Ingresa una dirección de correo electronico valida.
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Correo electronico es <strong>requerido.</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Contraseña" [formControl]="passwordFormControl"
+              [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+              Correo electronico es <strong>requerido.</strong>
+            </mat-error>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-content>
+          <button (click)='onSummit()' [disabled]="!emailFormControl.valid || !passwordFormControl.valid"
+            class="full-width" mat-flat-button color="primary"
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Iniciar
+            Sesión</button>
+        </mat-card-content>
+      </form>
+    </mat-card>
+  </div>
+</ion-content>
